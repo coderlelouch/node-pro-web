@@ -32,7 +32,8 @@
 						  </template>
 						  <template slot-scope="scope">
 						  	<el-button type="primary" size="small" icon="el-icon-edit" >修改</el-button>
-						  	<el-button type="danger" size="small"  icon="el-icon-delete">删除
+						  	<el-button type="danger" size="small"  icon="el-icon-delete" 
+							@click='handleDelete(scope.$index)'>删除
 						  	</el-button>
 						  </template>
 					</el-table-column>
@@ -51,21 +52,20 @@
 			return {
 				nowSelect:0,
 				multipleSelection: [],
-				search:''
+				search:'',
+				tableData:this.excelTable
 			}
 		},
 		components: {
 			Aside,
 			Header
 		},
-		computed: {
-			tableData(){
-					return this.$store.state.excelTable
-			}
-		},
 		methods:{
 			handleSelectionChange(val){
 				this.multipleSelection = val;
+			},
+			handleDelete(index){
+				this.tableData[this.nowSelect].data.splice(index,1);
 			}
 		}
 	}

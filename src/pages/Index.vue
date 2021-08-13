@@ -6,7 +6,7 @@
 			<div class="table-box">
 				<el-button size="medium">excel导入</el-button>
 				<el-button size="medium">手动添加</el-button>
-				<el-table :data="tableData" style="width: 100%">
+				<el-table :data="modelData" style="width: 100%">
 					<el-table-column prop="name" label="项目名称">
 					</el-table-column>
 					<el-table-column prop="status | statusFormat" label="查询状态">
@@ -19,12 +19,13 @@
 					</el-table-column>
 					<el-table-column label="操作">
 						<template slot-scope="scope">
-							<el-button type="primary" size="small" icon="el-icon-edit" @click="handleUpdate">修改</el-button>
+							<el-button type="primary" size="small" icon="el-icon-edit" @click="IsUpdate=!IsUpdate">修改</el-button>
 							<el-button type="danger" size="small" @click="handledelete(scope.$index)" icon="el-icon-delete">删除
 							</el-button>
 						</template>
 					</el-table-column>
 				</el-table>
+				<out-input v-show="IsUpdate" class="transition-box"></out-input>
 			</div>
 		</div>
 	</div>
@@ -33,20 +34,13 @@
 <script>
 	import Aside from '../components/aside.vue'
 	import Header from '../components/header.vue'
+	import OutInput from '../components/outInput.vue' 
 	export default {
 		name: 'Index',
 		data() {
 			return {
-			}
-		},
-		computed:{
-			tableData:{
-				get(){
-					return this.$store.state.excelTable
-				},
-				set(val){
-					this.$store.commit('updateExcelTable',val);
-				}
+				modelData:this.excelTable,
+				IsUpdate:false
 			}
 		},
 		filters: {
@@ -65,14 +59,16 @@
 		methods:{
 			handledelete(index){
 				console.log('已删除',index)
+				this.modelData.splice(index,1);
 			},
 			handleUpdate(){
-				console.log('修改成功')
+				console.log('修改成功!')
 			}
 		},
 		components: {
 			Aside,
-			Header
+			Header,
+			OutInput
 		}
 	}
 </script>

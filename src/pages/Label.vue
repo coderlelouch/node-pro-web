@@ -43,12 +43,8 @@
 		name: 'Label',
 		data() {
 			return {
-				nowSelect:0
-			}
-		},
-		computed: {
-			tableData(){
-					return this.$store.state.excelTable
+				nowSelect:0,
+				tableData:this.excelTable
 			}
 		},
 		components: {
