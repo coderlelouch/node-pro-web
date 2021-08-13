@@ -4,9 +4,9 @@
 	    <el-pagination
 	      @size-change="handleSizeChange"
 	      @current-change="handleCurrentChange"
-	      :current-page="currentPage4"
-	      :page-sizes="[100, 200, 300, 400]"
-	      :page-size="100"
+	      :current-page="currentPage"
+	      :page-sizes="[10, 15, 20, 30]"
+	      :page-size="10"
 	      layout="total, sizes, prev, pager, next, jumper"
 	      :total="400">
 	    </el-pagination>
@@ -26,7 +26,8 @@
 	    },
 	    data() {
 	      return {
-	        currentPage4: 4
+	        currentPage: 1,
+			
 	      };
 	    }
 	  }

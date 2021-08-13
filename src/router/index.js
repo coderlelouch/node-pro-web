@@ -16,27 +16,27 @@ const router = new VueRouter({
 		},
 		{
 			path:'/login',
-			name:'login',
+			name:'登录',
 			component: Login,
-			meta:{title:'登录页'}
+			meta:{title:'登录'}
 		},
 		{
 			path:'/index',
-			name:'index',
+			name:'项目管理',
 			component: Home,
-			meta:{title:'首页'}
+			meta:{title:'项目管理'}
 		},
 		{
 			path:'/label',
-			name:'label',
+			name:'字段管理',
 			component:Label,
 			meta:{title:'字段管理'}
 		},
 		{
 			path:'/product',
-			name:'product',
+			name:'全部产品',
 			component: Product,
-			meta:{title:'全部信息'}
+			meta:{title:'全部产品'}
 		}
 	]
 })
