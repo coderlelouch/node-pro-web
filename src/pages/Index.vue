@@ -26,6 +26,7 @@
 					</el-table-column>
 				</el-table>
 				<out-input v-show="IsUpdate" class="transition-box"></out-input>
+				<Upload></Upload>
 			</div>
 		</div>
 	</div>
@@ -35,6 +36,7 @@
 	import Aside from '../components/aside.vue'
 	import Header from '../components/header.vue'
 	import OutInput from '../components/outInput.vue' 
+	import Upload from '../components/Upload.vue'
 	export default {
 		name: 'Index',
 		data() {
@@ -68,7 +70,8 @@
 		components: {
 			Aside,
 			Header,
-			OutInput
+			OutInput,
+			Upload
 		}
 	}
 </script>

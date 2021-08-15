@@ -7,6 +7,7 @@ import axios from './utils/axios.js'
 import XLSX from 'xlsx'
 import excelTable from './data/modelData.js'
 
+Vue.use(XLSX)
 Vue.prototype.excelTable = excelTable
 
 Vue.use(ElementUI);
